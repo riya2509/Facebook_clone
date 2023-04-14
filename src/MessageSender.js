@@ -17,7 +17,7 @@ function MessageSender() {
           <input
             className="messageSender_input"
             type="text"
-            placeholder="What's on your mind. Riya Gupta?"
+            placeholder="What's on your mind, Riya Gupta?"
           />
           <input placeholder={`Image URl (Optional)`} />
           <button onClick={handleSubmit} type="submit">
