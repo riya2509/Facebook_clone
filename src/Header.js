@@ -14,7 +14,7 @@ import {
 import { Avatar, IconButton } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
-function Header() {
+function Header(src) {
   return (
     <div className="header">
       <div className="header_left">
@@ -24,7 +24,7 @@ function Header() {
         />
         <div className="header_input">
           <SearchIcon />
-          <input placeholder="Search Facebook" type="text" />
+          <input placeholder="Search Face" type="text" />
         </div>
       </div>
 
@@ -51,7 +51,8 @@ function Header() {
 
       <div className="header_right">
         <div className="header_info">
-          <Avatar />
+          <Avatar src="https://static.vecteezy.com/system/resources/previews/006/920/871/original/girls-with-bob-hairstyle-abstract-female-shap-and-silhouette-abstract-women-portrait-in-pastel-colors-contemporary-art-posters-fashion-girl-for-social-media-vector.jpg" />
+
           <h4>Riya</h4>
         </div>
         <IconButton>
