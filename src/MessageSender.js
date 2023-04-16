@@ -1,11 +1,19 @@
 import { InsertEmoticon, PhotoLibrary, Videocam } from "@mui/icons-material";
 import { Avatar } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import "./MessageSender.css";
 
 function MessageSender() {
+  const [input, setInput] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    //Database
+
+    setInput("");
+    setImageUrl("");
   };
 
   return (
@@ -15,11 +23,17 @@ function MessageSender() {
         <Avatar src="https://static.vecteezy.com/system/resources/previews/006/920/871/original/girls-with-bob-hairstyle-abstract-female-shap-and-silhouette-abstract-women-portrait-in-pastel-colors-contemporary-art-posters-fashion-girl-for-social-media-vector.jpg" />
         <form>
           <input
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
             className="messageSender_input"
             type="text"
             placeholder="What's on your mind, Riya Gupta?"
           />
-          <input placeholder={`Image URl (Optional)`} />
+          <input
+            value={imageUrl}
+            onChange={(e) => setImageUrl(e.target.value)}
+            placeholder={`Image URl (Optional)`}
+          />
           <button onClick={handleSubmit} type="submit">
             Hidden Submit
           </button>
