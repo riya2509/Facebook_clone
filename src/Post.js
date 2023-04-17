@@ -1,3 +1,10 @@
+import {
+  AccountCircle,
+  ChatBubbleOutline,
+  ExpandMoreOutlined,
+  NearMe,
+  ThumbUp,
+} from "@mui/icons-material";
 import { Avatar } from "@mui/material";
 import React from "react";
 import "./Post.css";
@@ -18,6 +25,28 @@ function Post({ profilePic, image, username, timestamp, message }) {
 
       <div className="post_image">
         <img src={image} alt="" />
+      </div>
+
+      <div className="post_options">
+        <div className="post_option">
+          <ThumbUp />
+          <p>Like</p>
+        </div>
+
+        <div className="post_option">
+          <ChatBubbleOutline />
+          <p>comment</p>
+        </div>
+
+        <div className="post_option">
+          <NearMe />
+          <p>Share</p>
+        </div>
+
+        <div className="post_option">
+          <AccountCircle />
+          <ExpandMoreOutlined />
+        </div>
       </div>
     </div>
   );

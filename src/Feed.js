@@ -24,7 +24,6 @@ function Feed() {
         timestamp="This is a timestamp."
         username="rrriyasat"
       />
-      <Post />
       {/* Post */}
     </div>
   );
