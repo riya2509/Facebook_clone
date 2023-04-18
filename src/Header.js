@@ -14,7 +14,10 @@ import {
 import { Avatar, IconButton } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
+import { useStateValue } from "./StateProvider";
 function Header(src) {
+  const [{ user }, dispatch] = useStateValue();
+
   return (
     <div className="header">
       <div className="header_left">
@@ -51,9 +54,9 @@ function Header(src) {
 
       <div className="header_right">
         <div className="header_info">
-          <Avatar src="https://static.vecteezy.com/system/resources/previews/006/920/871/original/girls-with-bob-hairstyle-abstract-female-shap-and-silhouette-abstract-women-portrait-in-pastel-colors-contemporary-art-posters-fashion-girl-for-social-media-vector.jpg" />
+          <Avatar src={user.photoURL} />
 
-          <h4>Riya</h4>
+          <h4>{user.displayName}</h4>
         </div>
         <IconButton>
           <AddIcon />

@@ -2,10 +2,13 @@ import { InsertEmoticon, PhotoLibrary, Videocam } from "@mui/icons-material";
 import { Avatar } from "@mui/material";
 import React, { useState } from "react";
 import "./MessageSender.css";
+import { useStateValue } from "./StateProvider";
 
 function MessageSender() {
   const [input, setInput] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+
+  const [{ user }, dispatch] = useStateValue();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,14 +23,14 @@ function MessageSender() {
     <div className="messageSender">
       {/* Top */}
       <div className="messageSender_top">
-        <Avatar src="https://static.vecteezy.com/system/resources/previews/006/920/871/original/girls-with-bob-hairstyle-abstract-female-shap-and-silhouette-abstract-women-portrait-in-pastel-colors-contemporary-art-posters-fashion-girl-for-social-media-vector.jpg" />
+        <Avatar src={user.photoURL} />
         <form>
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
             className="messageSender_input"
             type="text"
-            placeholder="What's on your mind, Riya Gupta?"
+            placeholder={`What's on your mind, ${user.displayName}?`}
           />
           <input
             value={imageUrl}

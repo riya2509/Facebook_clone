@@ -15,6 +15,7 @@ function App() {
   //const user=null;
   // eslint-disable-next-line no-unused-vars
   const [{ user }, dispatch] = useStateValue();
+  console.log(user);
   return (
     <div className="null">
       {!user ? (

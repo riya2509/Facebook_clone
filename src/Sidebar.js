@@ -10,13 +10,14 @@ import {
   Storefront,
   VideoLibrary,
 } from "@mui/icons-material";
+import { useStateValue } from "./StateProvider";
+
 function Sidebar() {
+  const [{ user }, dispatch] = useStateValue();
+
   return (
     <div className="sidebar">
-      <SidebarRow
-        src="https://static.vecteezy.com/system/resources/previews/006/920/871/original/girls-with-bob-hairstyle-abstract-female-shap-and-silhouette-abstract-women-portrait-in-pastel-colors-contemporary-art-posters-fashion-girl-for-social-media-vector.jpg"
-        title="Riya Gupta"
-      />
+      <SidebarRow src={user.photoURL} title={user.displayName} />
       <SidebarRow Icon={LocalHospital} title="COVID-19 Information Center" />
       <SidebarRow Icon={EmojiFlags} title="Pages" />
       <SidebarRow Icon={People} title="Friends" />
