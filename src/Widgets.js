@@ -5,7 +5,7 @@ function Widgets() {
   return (
     <div className="widgets">
       <iframe
-        src="https://www.google.com/search?q=cute+animals&oq=cute+animals&aqs=chrome..69i57.2400j0j1&sourceid=chrome&ie=UTF-8"
+        src="https://kiitportal.kiituniversity.net/irj/portal/"
         width="340"
         height="100%"
         style={{ border: "none", overflow: "hidden" }}
