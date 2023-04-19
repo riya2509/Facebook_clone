@@ -8,6 +8,7 @@ function MessageSender() {
   const [input, setInput] = useState("");
   const [imageUrl, setImageUrl] = useState("");
 
+  // eslint-disable-next-line no-unused-vars
   const [{ user }, dispatch] = useStateValue();
 
   const handleSubmit = (e) => {

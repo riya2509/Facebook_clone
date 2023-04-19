@@ -9,7 +9,7 @@ function StoryReel() {
       <Story
         image="https://i.easil.com/wp-content/uploads/20190626185211/4._see_event_-_colour_block_overlay_instagram_stories-576x1024.jpg"
         profileSrc="https://static.vecteezy.com/system/resources/previews/006/920/871/original/girls-with-bob-hairstyle-abstract-female-shap-and-silhouette-abstract-women-portrait-in-pastel-colors-contemporary-art-posters-fashion-girl-for-social-media-vector.jpg"
-        title="Riya Gupta"
+        title="Shreya"
       />
       <Story
         image="https://img.freepik.com/free-psd/real-estate-house-property-instagram-facebook-story-template_120329-1890.jpg"

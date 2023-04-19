@@ -16,6 +16,7 @@ import AddIcon from "@mui/icons-material/Add";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import { useStateValue } from "./StateProvider";
 function Header(src) {
+  // eslint-disable-next-line no-unused-vars
   const [{ user }, dispatch] = useStateValue();
 
   return (

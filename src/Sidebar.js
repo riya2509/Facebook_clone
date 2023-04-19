@@ -13,6 +13,7 @@ import {
 import { useStateValue } from "./StateProvider";
 
 function Sidebar() {
+  // eslint-disable-next-line no-unused-vars
   const [{ user }, dispatch] = useStateValue();
 
   return (

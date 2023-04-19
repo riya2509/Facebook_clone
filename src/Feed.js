@@ -1,29 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Feed.css";
 import StoryReel from "./StoryReel";
 import MessageSender from "./MessageSender";
 import Post from "./Post";
+import db from "./Firebase";
+import { useState } from "react";
 
 function Feed() {
+  const [posts, setPosts] = useState([]);
+
+  // Works only ones when the feed component loads when there is an empty []
+  //Realtime connection to the database
+  useEffect(() => {
+    db.collection("posts").onSnapshot((snapshot) => {
+      setPosts(snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() })));
+    });
+  }, []);
   return (
     <div className="feed">
       <StoryReel />
       {/* StoryReel */}
       <MessageSender />
       {/* MessageSender */}
-      <Post
-        profilePic="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg"
-        message="Wow! This works"
-        timestamp="This is a timestamp."
-        username="rrriyasat"
-        image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc23Vd2IVwcCmXusDUpSfwvGXFAreQ2bWf-A&usqp=CAU"
-      />
-      <Post
-        profilePic="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg"
-        message="Wow! This works"
-        timestamp="This is a timestamp."
-        username="rrriyasat"
-      />
+
+      {/* Instead of hardcoded post we will apply through the database */}
+      {posts.map((post) => (
+        <Post
+          key={post.id}
+          profilePic={post.profilePic}
+          image={post.image}
+          message={post.message}
+          timestamp={post.timestamp}
+          username={post.username}
+        />
+      ))}
+
       {/* Post */}
     </div>
   );
