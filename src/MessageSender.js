@@ -3,6 +3,9 @@ import { Avatar } from "@mui/material";
 import React, { useState } from "react";
 import "./MessageSender.css";
 import { useStateValue } from "./StateProvider";
+import db from "./Firebase";
+import firebase from "firebase/compat/app";
+import "firebase/compat/firestore";
 
 function MessageSender() {
   const [input, setInput] = useState("");
@@ -15,7 +18,15 @@ function MessageSender() {
     e.preventDefault();
 
     //Database
+    db.collection("posts").add({
+      message: input,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      profilePic: user.photoURL,
+      username: user.displayName,
+      image: imageUrl,
+    });
 
+    //Setting the strings to null as soon as we hit enter
     setInput("");
     setImageUrl("");
   };

@@ -12,9 +12,13 @@ function Feed() {
   // Works only ones when the feed component loads when there is an empty []
   //Realtime connection to the database
   useEffect(() => {
-    db.collection("posts").onSnapshot((snapshot) => {
-      setPosts(snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() })));
-    });
+    db.collection("posts")
+      .orderBy("timestamp", "desc")
+      .onSnapshot((snapshot) => {
+        setPosts(
+          snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }))
+        );
+      });
   }, []);
   return (
     <div className="feed">
@@ -27,11 +31,11 @@ function Feed() {
       {posts.map((post) => (
         <Post
           key={post.id}
-          profilePic={post.profilePic}
-          image={post.image}
-          message={post.message}
-          timestamp={post.timestamp}
-          username={post.username}
+          profilePic={post.data.profilePic}
+          image={post.data.image}
+          message={post.data.message}
+          timestamp={post.data.timestamp}
+          username={post.data.username}
         />
       ))}
 
